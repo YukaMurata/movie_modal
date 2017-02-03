@@ -1,0 +1,44 @@
+ .content .modal {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+  .content .modal_movie_overlay {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 210; }
+
+    .content .modal.modal_movie {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 910px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      z-index: 220; }
+      .content .modal.modal_movie .modal_movie_ttl{
+        font-size: 28px;
+        color: #fff;
+        text-align: center;
+        margin-top: 70px;
+        margin-bottom: 29px;
+      }
+      .content .modal.modal_movie img {
+        vertical-align: top; }
+
+        .content .modal.modal_movie .modal_movie_btn_skip {
+          position: absolute;
+          right: 0;
+        }
+        .content .modal.modal_movie .modal_movie_btn_skip a {
+          display: block;
+          color: #ffffff;
+          text-decoration: none;}
+
