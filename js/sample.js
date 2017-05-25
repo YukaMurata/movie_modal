@@ -10,9 +10,9 @@ $(function () {
         player = new YT.Player('player', {
             height: '512',
             width: '910',
-            videoId: 'bZWZ3RFPqzo',
+            videoId: 'youtubeID',
             playerVars: {
-                'rel': 0, //再生終了時に関連動画を表示しない
+                'rel': 0
             },
             events: {
                 'onReady': onPlayerReady,
