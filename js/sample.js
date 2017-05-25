@@ -10,7 +10,10 @@ $(function () {
         player = new YT.Player('player', {
             height: '512',
             width: '910',
-            videoId: 'youtubeID',
+            videoId: 'bZWZ3RFPqzo',
+            playerVars: {
+                'rel': 0, //再生終了時に関連動画を表示しない
+            },
             events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
@@ -19,16 +22,16 @@ $(function () {
     }
 
     function onPlayerReady(event) {
-        init(event);
+        $('.main-movie_button').click(function () {
+            buttonDelete();
+            player.playVideo(event);
+        });
     }
 
-    var hasEndedVideo = false;
 
     function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.ENDED && !hasEndedVideo) {
-            hasEndedVideo = true;
+        if (event.data == YT.PlayerState.ENDED) {
             stopVideo();
-            closeModal();
         }
     }
 
@@ -36,33 +39,9 @@ $(function () {
         player.stopVideo();
     }
 
-    function bindEvent() {
-        $('.modal_movie_btn_skip').click(function () {
-            stopVideo();
-            closeModal();
-        });
+    function buttonDelete() {
+        $('.main-movie_button').css('display', 'none');
     }
 
-    function openModal() {
-        var def = $.Deferred();
-        $('.modal_movie_overlay, .modal_movie').fadeIn(function(){
-            def.resolve();
-        });
-        return def.promise();
-    }
 
-    function closeModal() {
-        $('.main-img_box').fadeOut();
-    }
-
-    function init(event) {
-        if (isFirstAccess) {
-            openModal()
-                .then(function(){
-                    event.target.playVideo();
-                    bindEvent();
-                    $.cookie('key', 'visit', {expires: 365});
-                });
-        }
-    }
 });
