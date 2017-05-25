@@ -6,6 +6,7 @@ $(function () {
     var player;
     var isFirstAccess = ($.cookie('key') === undefined) ? true : false;
 
+    
     window.onYouTubeIframeAPIReady = function () {
         player = new YT.Player('player', {
             height: '512',
